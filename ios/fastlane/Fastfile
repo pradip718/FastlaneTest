@@ -21,22 +21,38 @@ platform :ios do
     # add actions here: https://docs.fastlane.tools/actions
   end
 
+  lane :get_dev_certs do
+    cert(
+
+      # development: true
+    )
+    sigh(
+    
+      # development: true
+    )
+  end
+
   desc "To export our app"
   lane :export_app do 
     gym(
-      project: "FastlaneTest.xcodeproj",
+      workspace: "FastlaneTest.xcworkspace",
       scheme: "FastlaneTest",
       clean: true,
       export_xcargs: "-allowProvisioningUpdates",
-      export_options: {
-        provisioningProfiles: {
-          "org.reactjs.native.example.FastlaneTest" => "match Waft Technology org.reactjs.native.example.FastlaneTest"
-        },
-        "signingStyle": "manual"
-      },
+      # export_options: {
+      #   provisioningProfiles: {
+      #     "org.lenden.FastlaneTest" => "Development_org.lenden.FastlaneTest.mobileprovision"
+      #   },
+      #   signingStyle: "manual"
+      # },
       output_name: "ReleaseApp.ipa",
-      codesigning_identity: "iPhone Distribution"
 
     )
+  end
+
+  lane :release do
+    build_app(scheme: "FastlaneTest",
+              workspace: "FastlaneTest.xcworkspace",
+              include_bitcode: true)
   end
 end

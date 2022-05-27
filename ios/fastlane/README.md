@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Description of what the lane does
 
+### ios get_dev_certs
+
+```sh
+[bundle exec] fastlane ios get_dev_certs
+```
+
+
+
 ### ios export_app
 
 ```sh
@@ -30,6 +38,14 @@ Description of what the lane does
 ```
 
 To export our app
+
+### ios release
+
+```sh
+[bundle exec] fastlane ios release
+```
+
+
 
 ----
 
