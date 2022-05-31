@@ -31,6 +31,30 @@ Description of what the lane does
 
 
 
+### ios certificates
+
+```sh
+[bundle exec] fastlane ios certificates
+```
+
+Get certificates
+
+### ios generate_new_certificates
+
+```sh
+[bundle exec] fastlane ios generate_new_certificates
+```
+
+Generate new certificates
+
+### ios releaseIpa
+
+```sh
+[bundle exec] fastlane ios releaseIpa
+```
+
+
+
 ### ios export_app
 
 ```sh

@@ -5,6 +5,19 @@
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
 
+# app_identifier("org.lenden.FastlaneTest") # The bundle identifier of your app
+# apple_id("pradipshrestha718@gmail.com") # Your Apple email address
+# team_id("NPS65DAT4X")
+
+
+# team_name "Waft Technology"
+# team_id "NPS65DAT4X"
+# itc_team_id "NPS65DAT4X"
+# itc_team_name "Waft Technology"
+
 app_identifier("org.lenden.FastlaneTest") # The bundle identifier of your app
+# widget_identifier("com.skytech.skyhomewidget") # The bundle identifier of your widget
 apple_id("pradipshrestha718@gmail.com") # Your Apple email address
-team_id("NPS65DAT4X")
+
+itc_team_id("119307825") # App Store Connect Team ID
+team_id("NPS65DAT4X") # Developer Portal Team ID

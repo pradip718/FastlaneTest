@@ -32,6 +32,44 @@ platform :ios do
     )
   end
 
+  desc "Get certificates"
+  lane :certificates do
+    # sync_code_signing(
+    #   type: "development",
+    #   app_identifier: ['org.lenden.FastlaneTest'],
+    #   force_for_new_devices: true,
+    #   readonly: true
+    # )
+
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: 'org.lenden.FastlaneTest',
+      readonly: true
+    )
+  end
+
+  desc "Generate new certificates"
+  lane :generate_new_certificates do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ['org.lenden.FastlaneTest'],
+      force_for_new_devices: true,
+      readonly: false
+    )
+    
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+
+  end
+
+  lane :releaseIpa do
+    # capture_screenshots                  # generate new screenshots for the App Store
+    sync_code_signing(type: "appstore", readonly: true)  # see code signing guide for more information
+    build_app(scheme: "FastlaneTest")
+    upload_to_app_store                  # upload your app to App Store Connect
+    # slack(message: "Successfully uploaded a new App Store build")
+  end
+
   desc "To export our app"
   lane :export_app do 
     gym(
@@ -45,7 +83,7 @@ platform :ios do
       #   },
       #   signingStyle: "manual"
       # },
-      output_name: "ReleaseApp.ipa",
+      output_name: "FastlaneTests.ipa",
 
     )
   end
